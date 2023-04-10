@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #363d7c;
+    --secondary-color: #144a52;
+    --tertiary-color: #ffffff;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  
+  body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(white);
+  color: rgb(61, 102, 102);
+  }
+  
+  /* BEGIN HEADER STYLING */
+  header div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    Margin: 20px 20px;
+    padding: 5px;
+    align-content: center;
+  }
+  .style-indiv {
+  font-size: .50cm;
+  font-weight: 100;
+  background-color: transparent; 
+  }
+  
+  
+  /* STYLE FOR BUTTON HEADER*/
+  .high-score {
+    font-size: .50cm;
+    border: none;
+    background-color: transparent;
+    padding: 20px; 
+  }
+  
+  div .p-style {
+    font-size: .60cm;
+    padding: 0px 50px ;
+    text-align: justify;
+  }
+  
+  div .p-style-1 {
+    font-size: .50cm;
+    font: 2px;
+    padding-block: 10px;
+   
+  }
+  /* HIDDEN HTML ELEMENTS COMPONETS*/
+  section .wrapper{
+    display: grid;
+    grid-template-rows: 1fr, 2fr, 1fr;
+    grid-auto-rows: (10px, auto);
+    grid-gap: .05em; 
+    justify-items: left; 
+   /* Margin: 20px 200px;*/
+  }
+  
+  div .style-2{
+    display: grid; 
+    grid-template-rows: 1fr, 2fr;
+    grid-auto-rows: (10px, auto);
+    flex: wrap;
+    justify-content: left;
+    align-content:space-between;
+  
+  }
+    div .style-3{
+      display: grid; 
+      grid-template-rows: 1fr, 2fr;
+      grid-auto-rows: (10px, auto);
+      flex: wrap;
+      justify-content: left;
+      align-content:space-between;
+  }
+  
+  section div {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    Margin: 20px auto;
+    padding: 10px;
+  }
+  div .style-3 {
+    display: inline;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    max-width: 75%;
+    padding-left: 75px;
+  }
+  
+  div .list-inner {
+  justify-content: start;
+  }
+  .list-inner {
+  justify-items: start;
+  }
+  
+  
+  
+  
+  /* STYLING FOR QUESTIONS */
+  .questions-ul {
+    list-style-type: none;
+    display: contents;
+  }
+  .questions-li {
+  width: 250px;
+  }
+  .list-inner {
+    display: grid;
+    grid-template-rows: 1fr, 2fr, 1fr;
+    grid-auto-rows: (10px, auto);
+    grid-gap: .05em; 
+    justify-items: center; 
+  }
+  /* BUTTON STYLE BODY */
+  .btn-style-main {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    border-radius: 10px;
+    width: 225px;
+    border: 1px solid black;
+    font-size: .50cm;
+    padding: 8px;
+    margin: 4px;
+    outline: none;
+  }
+  
+  .btn-style-main:active {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px rgb(214, 71, 71); 
+    transform: translateY(1px);
+  }
+  .answer-btn {
+    color: white;
+    width: 225px;
+    border: 1px solid black;
+    font-size: .50cm;
+    padding: 8px;
+    outline: none;
+    text-align: start;
+    border: 1px solid;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: var(--primary-color)
+  }
+  
+  .answer-btn:active {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px rgb(214, 71, 71); 
+    transform: translateY(1px);
+  }
+  .style-indiv {
+   display: flex;
+   justify-content: center;
+  
+  }.score-list {
+  
+    Padding-left: 35px;
+  }
+  
+  .span-1 {
+    height: 30px;
+  }
+  
+  
+  /* HIDE PAGE ELEMENT */
+  
+  #questions,
+  #final-score,
+  #high-scores,
+  #correct-wrong {
+    display: none;
+  }
+  
+  @media screen and (max-width: 720px){
+  header div {
+    justify-content: space-d;
+    margin-left: 0px;
+    padding: 5px;
+    align-content: center;
+    display: flex;
+    flex: none;
+  }
+  .answer-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  
+  }
+  
+  div .style-3 {
+  max-width: 100%;
+  }
+  }
+  @media screen and (max-width: 375px){
+  h2, .switch {
+  font-size: .45cm;
+  }
+  div .p-style {
+  font-size: .40cm;
+  text-align: justify;
+  padding: 0px 50px ;
+  }
+  .list-inner {
+  display: grid;
+  grid-template-rows: 1fr, 2fr, 1fr;
+  grid-auto-rows: (10px, auto);
+  grid-gap: .05em; 
+  justify-items: center; 
+  }
+  }
