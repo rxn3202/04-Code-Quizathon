@@ -11,15 +11,89 @@
 <body>
     <header class="header-title" id="header">
         <div class="view-high-scores-button">
-            <button></button>
+            <div class="style-indiv">
+                <button class=""view-high-scores high-score" id="view-scores" type="button">View High Scores</button>
+            </div>
+            <div class="style-indiv">
+                <p class="timer">Time: 100</p>
+            </div>
         </div>
     </header>
-<main id="main">
-    <section class="question-wrapper" id="question-wrapper">
-
-    </section>
+    
+    <main>
+        <section class="wrapper" id="challenge-beings">
+            <div class="main-title">
+                <h1 class="switch" id="switch-out">Code Quizathon</h1>
+            </div>
+            <div class="main-display" id="question-answer">
+                <p class="p-style" id="question-li">
+                    Attempt to solve the code-related questions within the given time frame. 
+                    Incorrect answers will result in a 10-second deduction from your score time.    
+                </p>
+            </div>
+            <div class="results" id="row-bottom">
+                <button id="start" class="start-btn btn-style-main" id="button-start">Start Quiz</button>
+            </div>
+        </section>
+        <section class="all-question" id="questions">
+            <div class="questions-list">
+                <div class="list-inner">
+                    <ul class="questions-ul">
+                        <h2 class="switch" id="question">Here is the question</h2>
+                        <li class="questions-li"><button id="answer-1" value="0" type="button"
+                            class="answer-btn">Answer-1</button></li>
+                        <li class="questions-li"><button id="answer-2" value="0" type="button"
+                            class="answer-btn">Answer-2</button></li>
+                        <li class="questions-li"><button id="answer-3" value="0" type="button"
+                            class="answer-btn">Answer-3</button></li>
+                        <li class="questions-li"><button id="answer-4" value="0" type="button"
+                            class="answer-btn">Answer-4</button></li>
+                        <li class="questions-li"><button id="answer-5" value="0" type="button"
+                            class="answer-btn">Answer-5</button></li>
+                        <li class="questions-li"><button id="answer-6" value="0" type="button"
+                            class="answer-btn">Answer-6</button></li>
+                        <li class="questions-li"><button id="answer-7" value="0" type="button"
+                            class="answer-btn">Answer-7</button></li>
+                        <li class="questions-li"><button id="answer-8" value="0" type="button"
+                            class="answer-btn">Answer-8</button></li>
+                        <li class="questions-li"><button id="answer-9" value="0" type="button"
+                            class="answer-btn">Answer-9</button></li>
+                        <li class="questions-li"><button id="answer-10" value="0" type="button"
+                            class="answer-btn">Answer-10</button></li>
+                    </ul>
+                    <div id="right-wrong" class="font-weight-light font-italic">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class=".wrapper1" id="final-score">
+            <div class="style-indiv">
+                <div class="style-2">
+                    <h2>Finished!</h2>
+                    <p>Your final score: <span id="score">0</span></p>
+                    <p class="p-style-1">Enter initials:
+                        <span class="initials-form style-4"><input placeholder="initials" id="initials"
+                        class="span-1"></span>
+                        <button id="submit-score" class="submit-score-btn btn-style-main">Submit</button>
+                        <hr>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="high-scores">
+            <div class="style-indiv">
+                <div class="style-3">
+                    <p><h2>High Scores</h2></p>
+                    <ol class="score-list"></ol>
+                    <button id="goBack" class="go-back-btn btn-style-main">Go Back</button>
+                    <button id="clearScores" class="clear-scores-btn btn-style-main">Clear Scores</button>
+                </div>
+            </div>
+        </section>
+    </main>
     
     <script src="./assets/scripts/script.js"></script>
-</main>
 </body>
+
 </html>
