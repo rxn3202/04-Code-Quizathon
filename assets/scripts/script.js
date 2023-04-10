@@ -1,54 +1,52 @@
-// DECOLRATIONS
-
-// VAR FOR TIMER   (global) 
+// Var for timer   (global) 
 var time = document.querySelector(".timer");
 var score = document.querySelector("#score");
 var secondsLeft = 75;
 
-//VAR FOR BUTTONS (global )
-const start = document.querySelector("#start");
+// Var for buttons (global )
+var start = document.querySelector("#start");
 
-// VAR FOR INTRO/START
-const codersIntro = document.querySelector("#challenge-begins");
+// Var for intro/start
+var codersIntro = document.querySelector("#challenge-begins");
 
-//CALL END LOAD EMLEMENT VAR
+// Var for call end load element
 var questionsEl = document.querySelector(".all-question");
 
-// ELEMENT LOCATIONS VAR
+// Var for elements locations
 let questionEl = document.querySelector("#question");
-const correctWrong = document.querySelector("#right-wrong");
+var correctWrong = document.querySelector("#right-wrong");
 let questionCount = 0;
 
 
-// FINAL SCORE VAR
-const finalEl = document.querySelector("#final-score");
+// Var for final score
+var finalEl = document.querySelector("#final-score");
 let initialsInput = document.querySelector("#initials");
 
-// HIGHSCORE VAR 
-const highscoresEl = document.querySelector("#high-scores");
+// Var for Highscore 
+var highscoresEl = document.querySelector("#high-scores");
 let scoreListEl = document.querySelector(".score-list");
 let scoreList = [];
 
-// THE ANSWER CLASS BUTTON
-const ansBtn = document.querySelectorAll("button.answer-btn")
+// Var for answer button
+var ansBtn = document.querySelectorAll("button.answer-btn")
 
-// VAR SUBMITINT, GO, CLEAR, VIEW
+// Var for submit, clear, view, goback
 let submitScrBtn = document.querySelector("#submit-score");
 let clearScrBtn = document.querySelector("#clearScores");
 let viewScrBtn = document.querySelector("#view-scores");
 let goBackBtn = document.querySelector("#goBack");
 
 
-// VAR ANSER CALL
-const ans1Btn = document.querySelector("#answer-1");
-const ans2Btn = document.querySelector("#answer-2");
-const ans3Btn = document.querySelector("#answer-3");
-const ans4Btn = document.querySelector("#answer-4");
+// Var for answers
+var ans1Btn = document.querySelector("#answer-1");
+var ans2Btn = document.querySelector("#answer-2");
+var ans3Btn = document.querySelector("#answer-3");
+var ans4Btn = document.querySelector("#answer-4");
 
 
 
-// ARRAY OF FIVE QUESTION, ZERO BASED, NUMBER CORECTLY. 
-const questions = [ 
+// Array of five questions 
+var questions = [ 
     {
         question: "Commonly used data types DO Not include:",
         answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
@@ -76,7 +74,7 @@ const questions = [
     }
 ];
 
-// TIMER FUNCTION STARTS PROCESS 
+// Start timer funtion  
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
@@ -91,7 +89,7 @@ function setTime() {
     }, 1000);
 }
 
-// QUIZ BEGIN FUNCTION
+// Begin quiz function
 function startQuiz() {
     codersIntro.style.display = "none";
     questionsEl.style.display = "block";
@@ -101,7 +99,7 @@ function startQuiz() {
     setQuestion(questionCount);
 }
 
-// SET QUESTION FUNCTION
+// Set question function
 function setQuestion(id) {
     if (id < questions.length) {
         questionEl.textContent = questions[id].question;
@@ -112,32 +110,32 @@ function setQuestion(id) {
     }
 }
 
-// EVENT FUNCTION CHECK ANSWERS BEGING PROCESS
+// Event funtion to check answers
 function checkAnswer(event) {
     event.preventDefault();
 
-    //CREATING ELEMENT OF RIGHT OR WRONG
+    // Creating elment of right or wrong
     correctWrong.style.display = "block";
     let p = document.createElement("p");
     correctWrong.appendChild(p);
 
-    // DISPLAY NEW ELEMENT FOR X AMOUNR OF TIME
+    // Display new element for x amount of time
     setTimeout(function () {
         p.style.display = 'none';
     }, 1000);
 
-    // RIGHT OR WRONG ANSWER CONDITIONAL STATEMENTS CORRECT
+    // Right or wrong answer conidtional statements - correct
     if (questions[questionCount].correctAnswer === event.target.value) {
         p.textContent = "Correct!";
     } 
    
-     // RIGHT OR WRONG ANSWER CONDITIONAL STATEMENTS WRONG
+     // Right or wrong answer conidtional statements - wrong
     else if (questions[questionCount].correctAnswer !== event.target.value) {
         secondsLeft = secondsLeft - 10;
         p.textContent = "Wrong!";
     }
 
-    // CYCLE 
+    // loop 
     if (questionCount < questions.length) {
         questionCount++;
     }
@@ -153,7 +151,7 @@ function addScore(event) {
     let init = initialsInput.value.toUpperCase();
     scoreList.push({ initials: init, score: secondsLeft });
 
-    // HIGH SCORE SORTING LIST
+    // High scores sorting list
     scoreList = scoreList.sort((a, b) => {
         if (a.score < b.score) {
           return 1;
@@ -169,7 +167,7 @@ function addScore(event) {
         scoreListEl.append(li);
     }
 
-    // STORAGE OF SCORE 
+    // Storage of score
     storeScores();
     displayScores();
 }
@@ -182,31 +180,31 @@ function displayScores() {
     // Parsing the JSON string to an object
     let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
 
-    // WHEN RETREIVED FROM LOCAL, ARRAY
+    // When retrieved from local, array
     if (storedScoreList !== null) {
         scoreList = storedScoreList;
     }
 }
 
-// CLEAR THE STORE
+// Clear the score
 function clearScores() {
     localStorage.clear();
     scoreListEl.innerHTML="";
 }
 
-// START OFF ALL EVENT 
+// Start of event 
 // Start timer and display first question when click start quiz
 start.addEventListener("click", startQuiz);
 
-// CHECK ANSER LISTENER EVENT
+// Check answer listener event
 ansBtn.forEach(item => {
     item.addEventListener('click', checkAnswer);
 });
 
-// ADDING A SCORE EVENT
+// Adding a score event
 submitScrBtn.addEventListener("click", addScore);
 
-// GO BACK LISTENER EVENT FUNCTIN 
+// Go back listener event function
 goBackBtn.addEventListener("click", function () {
     highscoresEl.style.display = "none";
     codersIntro.style.display = "block";
@@ -214,10 +212,10 @@ goBackBtn.addEventListener("click", function () {
     time.textContent = `Time:${secondsLeft}s`;
 });
 
-// CLEAR SCORE
+// Clear score
 clearScrBtn.addEventListener("click", clearScores);
 
-// HIGH SCORE BUTTON ALERT AND DISPLAY LISTENER EVENT
+// High score button alert and display listener event
 viewScrBtn.addEventListener("click", function () {
     if (highscoresEl.style.display === "none") {
         highscoresEl.style.display = "block";
