@@ -1,9 +1,11 @@
+/* Define color variables */
 :root {
     --primary-color: #363d7c;
     --secondary-color: #144a52;
     --tertiary-color: #ffffff;
   }
   
+  /* Reset default styles for all elements */
   * {
     box-sizing: border-box;
     margin: 0;
@@ -11,14 +13,15 @@
   }
   
   
-  
+  /* Body styles */
   body {
   font-family: 'Courier New', Courier, monospace;
   background-color: rgb(white);
   color: rgb(61, 102, 102);
   }
   
-  /* BEGIN HEADER STYLING */
+ /* Header styling */
+/* Define styles for header div */
   header div {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +30,8 @@
     padding: 5px;
     align-content: center;
   }
+
+  /* Define styles for .style-indiv class */
   .style-indiv {
   font-size: .50cm;
   font-weight: 100;
@@ -34,7 +39,7 @@
   }
   
   
-  /* STYLE FOR BUTTON HEADER*/
+/* Define styles for .high-score class */
   .high-score {
     font-size: .50cm;
     border: none;
@@ -42,28 +47,31 @@
     padding: 20px; 
   }
   
+  /* Define styles for div .p-style */
   div .p-style {
     font-size: .60cm;
     padding: 0px 50px ;
     text-align: justify;
   }
   
+  /* Define styles for div .p-style-1 */
   div .p-style-1 {
     font-size: .50cm;
     font: 2px;
     padding-block: 10px;
    
   }
-  /* HIDDEN HTML ELEMENTS COMPONETS*/
+
+  /* Define styles for hidden HTML elements components */
   section .wrapper{
     display: grid;
     grid-template-rows: 1fr, 2fr, 1fr;
     grid-auto-rows: (10px, auto);
     grid-gap: .05em; 
     justify-items: left; 
-   /* Margin: 20px 200px;*/
   }
   
+  /* Define styles for div .style-2 */
   div .style-2{
     display: grid; 
     grid-template-rows: 1fr, 2fr;
@@ -73,6 +81,8 @@
     align-content:space-between;
   
   }
+
+  /* Define styles for div .style-3 */
     div .style-3{
       display: grid; 
       grid-template-rows: 1fr, 2fr;
@@ -82,14 +92,16 @@
       align-content:space-between;
   }
   
+  /* Define styles for section div */
   section div {
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     Margin: 20px auto;
     padding: 10px;
   }
+
+  /* Define styles for div .style-3 */
   div .style-3 {
     display: inline;
     flex-wrap: wrap;
@@ -98,24 +110,27 @@
     padding-left: 75px;
   }
   
+  /* Define styles for div .list-inner */
   div .list-inner {
   justify-content: start;
   }
+
+  /* Define styles for .list-inner class */
   .list-inner {
   justify-items: start;
   }
   
-  
-  
-  
-  /* STYLING FOR QUESTIONS */
+/* Styling for questions */
+/* Define styles for .questions-ul class */
   .questions-ul {
     list-style-type: none;
     display: contents;
   }
+  /* Define styles for .questions-li class */
   .questions-li {
   width: 250px;
   }
+  /* Define styles for .list-inner class */
   .list-inner {
     display: grid;
     grid-template-rows: 1fr, 2fr, 1fr;
@@ -123,7 +138,7 @@
     grid-gap: .05em; 
     justify-items: center; 
   }
-  /* BUTTON STYLE BODY */
+  /* Define styles for button style body */
   .btn-style-main {
     background-color: var(--primary-color);
     color: var(--tertiary-color);
@@ -136,11 +151,14 @@
     outline: none;
   }
   
+  /* Button style when active */
   .btn-style-main:active {
     background-color: var(--secondary-color);
     box-shadow: 0 2px rgb(214, 71, 71); 
     transform: translateY(1px);
   }
+
+  /* Answer button style */
   .answer-btn {
     color: white;
     width: 225px;
@@ -155,27 +173,31 @@
     background-color: var(--primary-color)
   }
   
+  /* Answer button style when active */
   .answer-btn:active {
     background-color: var(--secondary-color);
     box-shadow: 0 2px rgb(214, 71, 71); 
     transform: translateY(1px);
   }
+
+/* Individual style */
   .style-indiv {
    display: flex;
    justify-content: center;
   
+/* Score list style */
   }.score-list {
   
     Padding-left: 35px;
   }
   
+  /* Span-1 style */
   .span-1 {
     height: 30px;
   }
   
   
-  /* HIDE PAGE ELEMENT */
-  
+/* Hide page elements */
   #questions,
   #final-score,
   #high-scores,
@@ -183,6 +205,7 @@
     display: none;
   }
   
+  /* Media query for screen width <= 720px */
   @media screen and (max-width: 720px){
   header div {
     justify-content: space-d;
@@ -203,6 +226,8 @@
   max-width: 100%;
   }
   }
+
+  /* Media query for screen width <= 375px */
   @media screen and (max-width: 375px){
   h2, .switch {
   font-size: .45cm;
