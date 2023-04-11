@@ -45,6 +45,7 @@ var ans4Btn = document.querySelector("#answer-4");
 
 
 
+
 // Array of five questions 
 var questions = [ 
     {
