@@ -22,6 +22,6 @@ WHEN the game is over
 THEN I can save my initials and score
 
 ## Mock-up
-Please view live URL: [Password-Generator](https://rxn3202.github.io/04-Code-Quizathon/)
+Please view live URL: [Code-Quizathon](https://rxn3202.github.io/04-Code-Quizathon/)
 
 ![](/assets/images/CodeQuiz2.gif)
