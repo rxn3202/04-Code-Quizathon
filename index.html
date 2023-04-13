@@ -18,38 +18,38 @@
                 <button class="view-high-scores high-score" id="view-scores" type="button"> View High Scores</button>
             </div>
             <div class="style-indiv">
-                <p class="timer">Time: 75</p>
+                <p class="timer">Time: 60</p>
             </div>
         </div>
     </header>
     <!-- End of Header-->
     <!-- Start of Main -->
     <main>
-        <!-- Initial Challenge layout -->
-        <section class="wrapper" id="challenge-begins">
-            <!-- Top div content [TITLE/QUESTION]-->
+        <!-- Initial layout -->
+        <section class="wrapper" id="quiz-start">
+            <!-- Top div content -->
             <div class="main-title">
-                <h1 class="switch" id="switch-out">Coding Quiz Challenge</h1>
+                <h1 class="switch" id="switch-out">Coding Quiz</h1>
             </div>
-            <!-- Middle div content [OPENING PARAGRAPH/POSSIBLE ANSWERS]-->
+            <!-- Middle div content -->
             <div class="main-display" id="question-answer">
-                <p class="p-style" id="question-li">Try to answer the follwing code-related questions with-in the time
-                    limit. Keep in mind that incorrect answers will penalize your score-time by 10 seconds.
+                <p class="style" id="question-li">Try to answer the follwing code related questions within the time
+                    limit. Incorrect answers will deduct your time by 10 seconds.
                 </p>
             </div>
-            <!-- Bottom div content [START/RESULTS]-->
+            <!-- Bottom div content for results-->
             <div class="results" id="row-bottow">
                 <button id="start" class="start-btn btn-style-main" id="button-start">Start Quiz</button>
             </div>
         </section>
 
         <!-- Start of hidden sections -->
-        <!-- First section swtich-in -->
+        <!-- question section -->
         <section class="all-question" id="questions">
             <div class="questions-list">
                 <div class="list-inner">
                     <ul class="questions-ul">
-                        <h2 class="switch" id="question">Here is the question</h2>
+                        <h2 class="switch" id="question">Question</h2>
                         <li class="questions-li "><button id="answer-1" value="0" type="button"
                                 class="answer-btn">Answer-1</button></li>
                         <li class="questions-li"><button id="answer-2" value="1" type="button"
@@ -59,11 +59,7 @@
                         <li class="questions-li"><button id="answer-4" value="3" type="button"
                                 class="answer-btn">Answer-4</button></li>
                     </ul>
-
-                    <div id="right-wrong" class="font-weight-light font-italic">
-
-                        <hr> <!-- Results will be added here via js once ran -->
-                    </div>
+                    <div id="correct-incorrect" class="font-weight-light font-italic"></div>
                 </div>
             </div>
         </section>
@@ -72,20 +68,19 @@
         <section class=".wrapper1" id="final-score">
             <div class="style-indiv">
                 <div class="style-2">
-                    <h2>All Done!</h2>
-                    <p>Your final score is: <span id="score">0</span></p>
-                     <p class="p-style-1">Enter initials:
+                    <h2>Finished!</h2>
+                    <p>Your final score: <span id="score">0</span></p>
+                     <p class="style-1">Enter initials:
                      <span class="initials-form style-4"><input placeholder="initials" id="initials"
                      class="span-1"></span>
                     <button id="submit-score" class="submit-score-btn btn-style-main">Submit</button>
                     <hr>
-                        </p>
+                    </p>
                 </div>
             </div>
-                
         </section>
 
-        <!-- High score results -->
+        <!-- High score results section -->
         <section id="high-scores">
             <div class="style-indiv">
                 <div class="style-3">
@@ -94,7 +89,6 @@
                     <button id="goBack" class="go-back-btn btn-style-main">Go Back</button>
                     <button id="clearScores" class="clear-scores-btn btn-style-main">Clear All Scores</button>
                 </div>
-             
             </div>
         </section>
     </main>

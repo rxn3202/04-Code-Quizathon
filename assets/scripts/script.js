@@ -1,83 +1,60 @@
-// Var for timer   (global) 
+// DOM elements for timer, score, start button, and other elements
 var time = document.querySelector(".timer");
 var score = document.querySelector("#score");
-var secondsLeft = 75;
-
-// Var for buttons (global )
 var start = document.querySelector("#start");
-
-// Var for intro/start
-var codersIntro = document.querySelector("#challenge-begins");
-
-// Var for call end load element
+var codeIntro = document.querySelector("#quiz-start");
 var questionsEl = document.querySelector(".all-question");
-
-// Var for elements locations
-let questionEl = document.querySelector("#question");
-var correctWrong = document.querySelector("#right-wrong");
-let questionCount = 0;
-
-
-// Var for final score
+var questionEl = document.querySelector("#question");
+var correctIncorrect = document.querySelector("#correct-incorrect");
 var finalEl = document.querySelector("#final-score");
-let initialsInput = document.querySelector("#initials");
-
-// Var for Highscore 
+var initialsInput = document.querySelector("#initials");
 var highscoresEl = document.querySelector("#high-scores");
-let scoreListEl = document.querySelector(".score-list");
+var scoreListEl = document.querySelector(".score-list");
+var submitScrBtn = document.querySelector("#submit-score");
+var clearScrBtn = document.querySelector("#clearScores");
+var viewScrBtn = document.querySelector("#view-scores");
+var goBackBtn = document.querySelector("#goBack");
+var ansBtn = document.querySelectorAll("button.answer-btn");
+
+// Variables for time remaining, current question index, and score list
+let secondsLeft = 60;
+let questionCount = 0;
 let scoreList = [];
 
-// Var for answer button
-var ansBtn = document.querySelectorAll("button.answer-btn")
-
-// Var for submit, clear, view, goback
-let submitScrBtn = document.querySelector("#submit-score");
-let clearScrBtn = document.querySelector("#clearScores");
-let viewScrBtn = document.querySelector("#view-scores");
-let goBackBtn = document.querySelector("#goBack");
-
-
-// Var for answers
-var ans1Btn = document.querySelector("#answer-1");
-var ans2Btn = document.querySelector("#answer-2");
-var ans3Btn = document.querySelector("#answer-3");
-var ans4Btn = document.querySelector("#answer-4");
-
-
-
-
-// Array of five questions 
-var questions = [ 
+// Array of quiz questions and answers
+var questions = [
     {
-        question: "Commonly used data types DO Not include:",
-        answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-        correctAnswer: "2"
+        question: "What is the correct way to declare a variable in JavaScript?",
+        answers: ["0. var x = 10;", "1. let x = 10;", "2. const x = 10;", "3. All of the above"],
+        correctAnswer: "3"
     },
     {
-        question: "The condition in an if / else statement is enclosed within _______.",
-        answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
+        question: "Which of the following statements is true regarding JavaScript data types?",
+        answers: ["0. JavaScript has only one data type: var", "1. JavaScript has four primitive data types: string, number, boolean, and undefined", "2. JavaScript has three data types: object, array, and function", "3. JavaScript has two data types: object and array"],
         correctAnswer: "1"
     },
     {
-        question: "Arrays in Javascript can be used to store ______.",
-        answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
-        correctAnswer: "3"
-    },
-    {
-        question: "String values must be enclosed within ________ when being assigned to variables.",
-        answers: ["1. commmas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        question: "What is the correct way to write a function in JavaScript?",
+        answers: ["0. function: myFunction() { }", "1. myFunction() = function { }", "2. function myFunction() { }", "3. myFunction: function() { }"],
         correctAnswer: "2"
     },
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        answers: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
-        correctAnswer: "3"
+        question: "Which of the following is NOT a valid way to comment in JavaScript?",
+        answers: ["0. /* This is a comment /", "1. // This is a comment", "2. <!-- This is a comment -->", "3. All of the above"],
+        correctAnswer: "0"
+    },
+    {
+        question: "How do you properly include an external JavaScript file in an HTML document?",
+        answers: ["0. Using the <link> tag", "1. Using the <script> tag with the src attribute.", "2. Using the <style> tag", "3. Using the <meta> tag"],
+        correctAnswer: "1"
     }
 ];
 
-// Start timer funtion  
+
+
+// Function to start the timer countdown
 function setTime() {
-    let timerInterval = setInterval(function () {
+    var timerInterval = setInterval(() => {
         secondsLeft--;
         time.textContent = `Time:${secondsLeft}s`;
 
@@ -90,9 +67,9 @@ function setTime() {
     }, 1000);
 }
 
-// Begin quiz function
+// Function to start the quiz
 function startQuiz() {
-    codersIntro.style.display = "none";
+    codeIntro.style.display = "none";
     questionsEl.style.display = "block";
     questionCount = 0;
 
@@ -100,132 +77,78 @@ function startQuiz() {
     setQuestion(questionCount);
 }
 
-// Set question function
+// Function to display the current question
 function setQuestion(id) {
     if (id < questions.length) {
-        questionEl.textContent = questions[id].question;
-        ans1Btn.textContent = questions[id].answers[0];
-        ans2Btn.textContent = questions[id].answers[1];
-        ans3Btn.textContent = questions[id].answers[2];
-        ans4Btn.textContent = questions[id].answers[3];
+        var { question, answers } = questions[id];
+        questionEl.textContent = question;
+        answers.forEach((answer, index) => ansBtn[index].textContent = answer);
     }
 }
 
-// Event funtion to check answers
+// Function to check if the user's answer is correct and update the display
 function checkAnswer(event) {
     event.preventDefault();
+    correctIncorrect.style.display = "block";
+    var p = document.createElement("p");
+    correctIncorrect.appendChild(p);
 
-    // Creating elment of right or wrong
-    correctWrong.style.display = "block";
-    let p = document.createElement("p");
-    correctWrong.appendChild(p);
+    setTimeout(() => p.style.display = 'none', 1000);
 
-    // Display new element for x amount of time
-    setTimeout(function () {
-        p.style.display = 'none';
-    }, 1000);
+    p.textContent = questions[questionCount].correctAnswer === event.target.value ? "Correct!" : "Incorrect!";
+    if (p.textContent === "Incorrect!") secondsLeft -= 10;
 
-    // Right or wrong answer conidtional statements - correct
-    if (questions[questionCount].correctAnswer === event.target.value) {
-        p.textContent = "Correct!";
-    } 
-   
-     // Right or wrong answer conidtional statements - wrong
-    else if (questions[questionCount].correctAnswer !== event.target.value) {
-        secondsLeft = secondsLeft - 10;
-        p.textContent = "Wrong!";
-    }
-
-    // loop 
-    if (questionCount < questions.length) {
-        questionCount++;
-    }
+    if (questionCount < questions.length) questionCount++;
     setQuestion(questionCount);
 }
 
+// Function to add the user's score to the score list
 function addScore(event) {
     event.preventDefault();
-
     finalEl.style.display = "none";
     highscoresEl.style.display = "block";
 
-    let init = initialsInput.value.toUpperCase();
+    var init = initialsInput.value.toUpperCase();
     scoreList.push({ initials: init, score: secondsLeft });
 
-    // High scores sorting list
-    scoreList = scoreList.sort((a, b) => {
-        if (a.score < b.score) {
-          return 1;
-        } else {
-          return -1;
-        }
-      });
-    
-    scoreListEl.innerHTML="";
-    for (let i = 0; i < scoreList.length; i++) {
-        let li = document.createElement("li");
-        li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
-        scoreListEl.append(li);
-    }
-
-    // Storage of score
+    scoreList.sort((a, b) => b.score - a.score);
+    scoreListEl.innerHTML = scoreList.map(item => `<li>${item.initials}: ${item.score}</li>`).join('');
     storeScores();
     displayScores();
 }
 
+// Function to store the score list in local storage
 function storeScores() {
     localStorage.setItem("scoreList", JSON.stringify(scoreList));
 }
 
+// Function to display the score list from local storage
 function displayScores() {
-    // Parsing the JSON string to an object
-    let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
-
-    // When retrieved from local, array
-    if (storedScoreList !== null) {
-        scoreList = storedScoreList;
-    }
+    var storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+    if (storedScoreList !== null) scoreList = storedScoreList;
 }
 
-// Clear the score
+// Function to clear the score list from local storage and the display
 function clearScores() {
     localStorage.clear();
-    scoreListEl.innerHTML="";
+    scoreListEl.innerHTML = "";
 }
 
-// Start of event 
-// Start timer and display first question when click start quiz
+// Event listeners for buttons and actions
 start.addEventListener("click", startQuiz);
-
-// Check answer listener event
-ansBtn.forEach(item => {
-    item.addEventListener('click', checkAnswer);
-});
-
-// Adding a score event
+ansBtn.forEach(item => item.addEventListener('click', checkAnswer));
 submitScrBtn.addEventListener("click", addScore);
-
-// Go back listener event function
-goBackBtn.addEventListener("click", function () {
+goBackBtn.addEventListener("click", () => {
     highscoresEl.style.display = "none";
-    codersIntro.style.display = "block";
-    secondsLeft = 75;
+    codeIntro.style.display = "block";
+    secondsLeft = 60;
     time.textContent = `Time:${secondsLeft}s`;
 });
-
-// Clear score
 clearScrBtn.addEventListener("click", clearScores);
-
-// High score button alert and display listener event
-viewScrBtn.addEventListener("click", function () {
+viewScrBtn.addEventListener("click", () => { 
     if (highscoresEl.style.display === "none") {
-        highscoresEl.style.display = "block";
-    } 
-    else if (highscoresEl.style.display === "block") {
-        highscoresEl.style.display = "none";
-    } 
-    
-    else {
-        return alert("Hey. Take Quiz. There is No High Score.");
-    }
+    highscoresEl.style.display = "block";
+} else {
+    highscoresEl.style.display = "none";
+}
 });

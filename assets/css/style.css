@@ -15,7 +15,7 @@
   
   /* Body styles */
   body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Helvetica, Arial, sans-serif;
   background-color: rgb(white);
   color: rgb(61, 102, 102);
   }
@@ -47,15 +47,15 @@
     padding: 20px; 
   }
   
-  /* Define styles for div .p-style */
-  div .p-style {
+  /* Define styles for div .style */
+  div .style {
     font-size: .60cm;
     padding: 0px 50px ;
     text-align: justify;
   }
   
-  /* Define styles for div .p-style-1 */
-  div .p-style-1 {
+  /* Define styles for div .style-1 */
+  div .style-1 {
     font-size: .50cm;
     font: 2px;
     padding-block: 10px;
@@ -79,7 +79,6 @@
     flex: wrap;
     justify-content: left;
     align-content:space-between;
-  
   }
 
   /* Define styles for div .style-3 */
@@ -232,7 +231,7 @@
   h2, .switch {
   font-size: .45cm;
   }
-  div .p-style {
+  div .style {
   font-size: .40cm;
   text-align: justify;
   padding: 0px 50px ;
