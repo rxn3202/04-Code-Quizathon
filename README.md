@@ -24,4 +24,4 @@ THEN I can save my initials and score
 ## Mock-up
 Please view live URL: [Password-Generator](https://rxn3202.github.io/04-Code-Quizathon/)
 
-![](/assets/images/CodeQuiz.gif)
+![](/assets/images/CodeQuiz2.gif)
